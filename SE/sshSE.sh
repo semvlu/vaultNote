@@ -90,12 +90,14 @@ vault read -field=public_key ssh-host-signer/config/ca
 
 :'
 Client Key Signing
-    CA key pair: vault, public to host
+    CA key pair: vault, public key distributed to target
     Client SSH key pair: client
     Signed cert: client
+    Login: Target holds CA public key to check client cert
 
-Host Key Signing
-    CA key pair : vault, public to client
-    Host SSH key pair: host
-    Host cert: host
+Host (Target) Key Signing
+    CA key pair : vault, public key distributed to client
+    Host SSH key pair: target
+    Host cert: target
+    Login: Client holds CA public key to check target cert
 '
