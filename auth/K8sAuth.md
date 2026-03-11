@@ -21,7 +21,8 @@ vault write auth/kubernetes/role/demo \
     ttl=1h
 ```
 
-If Vault qua Pod, use pod's local service account tk. Vault re-read file to support short-lived tk. 
+## Vault qua Pod
+Use pod's local service account tk. Vault re-read file to support short-lived tk. 
 - Omit `token_reviewer_jwt`, `kubernetes_ca_cert`.
 - Vault load from `token`, `ca.crt` @ `/var/run/secrets/kubernetes.io/serviceaccount/`.
 
@@ -31,8 +32,6 @@ vault write auth/kubernetes/config \
 ```
 
 If Vault in K8s, `disable_local_ca_jwt=true`
-
-
 ```
 vault write auth/kubernetes/login role=demo jwt=...
 ```
