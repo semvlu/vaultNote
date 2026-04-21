@@ -20,5 +20,13 @@ vault write pki/roles/example-dot-com \
   allowed_domains=example.com \
   allow_subdomains=true \
   max_ttl=72h
+  
+vault write pki/roles/kube-certs \
+    issuer_ref="<issuer_id>" \
+    allowed_domains="local,argocd.local,minio.local,vault.local" \
+    allow_subdomains=true \
+    allow_bare_domains=true \
+    max_ttl="720h"
+    
 # Issue cert for www.example.com
 vault write pki/issue/example-dot-com common_name=www.example.com
