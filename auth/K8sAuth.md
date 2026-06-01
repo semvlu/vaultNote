@@ -9,7 +9,7 @@ vault auth enable kubernetes
 # Config 
 vault write auth/kubernetes/config \
     token_reviewer_jwt="<reviewer service account JWT>" \
-    kubernetes_host=https://192.168.99.100:< TCP port> \ # If port not set, default: 443
+    kubernetes_host=https://192.168.99.100:<TCP-port> \ # If port not set, default: 443
     kubernetes_ca_cert=@ca.crt
 
 # Create Role
